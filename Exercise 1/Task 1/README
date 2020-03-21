@@ -1,1 +1,5 @@
-Soon..
+In the first exercise I tried the PCA(principal component analysis) method to reduce the dimensions of my data.
+First I tried the PCA algorithm in a 2Dim to check the fuctionality and then I applied it in a dataset of 5000 pictures.
+You can see the results in the .png files or in the report file.
+
+--Soon .png files and report.
