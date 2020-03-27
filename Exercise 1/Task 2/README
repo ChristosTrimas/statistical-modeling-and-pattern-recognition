@@ -1,0 +1,2 @@
+In this task I implemented Fisher's Linear Discriminant Algorithm for 2 classes. Then I compared this method with PCA method that was implemented
+in Task 1. After that I tested multi class LDA in the IRIS dataset.
