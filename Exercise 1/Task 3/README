@@ -1,0 +1,1 @@
+In this exercise I calculated the aspect ratio of every image in mnist that has digit one and two. As aspect ratio I defined the square area that covers perfectly the digit in the image. After that I used Bayes theorem to calculate some probabilities.
