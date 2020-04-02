@@ -69,11 +69,6 @@ end
 
 all_bins = C1_bins + C2_bins;
 
-PC1givenL = 0.0;
-% PC1 = 0.0;
-% PC2 = 0.0;
-% PgivenC1_L = 0.0;
-% P_L = 0.0;
 % Prior Probabilities
 PC1 = size(digit_C1_images) / size(images); %P(C1)
 PC2 = size(digit_C2_images) / size(images); %P(C2)
