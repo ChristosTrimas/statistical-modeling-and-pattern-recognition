@@ -1,5 +1,8 @@
 data_file = 'C:/Users/user/Desktop/exercise1_4/data/mnist.mat';
 
+%download the dataset and change the directory above
+
+
 data = load(data_file);
 
 images = zeros(size(data.trainX, 1), 28, 28);
