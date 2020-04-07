@@ -158,13 +158,13 @@ v = myLDA(meas_norm, iris_labels, NewDim);
 
 %  Project the data on the direction of the two dimensional v
 [meas_reduced] = projectDataLDA(meas_norm, v);
-
+[rec] = recoverDataLDA(meas_reduced,v);
 %  Visualize the sample dataset after LDA is applied
 %  Use different color/symbol for each class
 figure
-n_1 = IRIS1*v;
-n_2 = IRIS2*v;
-n_3 = IRIS3*v;
+n_1 = meas_reduced(iris_labels==0,:);
+n_2 = meas_reduced(iris_labels==1,:);
+n_3 = meas_reduced(iris_labels==2,:);
 
 hold on
 plot(n_1(:, 1), n_1(:, 2), 'bo');
@@ -172,11 +172,11 @@ plot(n_2(:, 1), n_2(:, 2), 'rs');
 plot(n_3(:, 1), n_3(:, 2), 'g+');
 hold off
 
-figure
-hold on
-plot(meas_reduced(iris_labels==0,:), meas_reduced(iris_labels==0,:), 'bo','MarkerFaceColor', 'b');
-plot(meas_reduced(iris_labels==1,:), meas_reduced(iris_labels==1,:), 'rs','MarkerFaceColor', 'r');
-plot(meas_reduced(iris_labels==2,:), meas_reduced(iris_labels==2,:), 'g+','MarkerFaceColor', 'g');
-hold off
+% figure
+% hold on
+% plot(rec(iris_labels==0,:), rec(iris_labels==0,:), 'bo','MarkerFaceColor', 'b');
+% plot(rec(iris_labels==1,:), rec(iris_labels==1,:), 'rs','MarkerFaceColor', 'r');
+% plot(rec(iris_labels==2,:), rec(iris_labels==2,:), 'g+','MarkerFaceColor', 'g');
+% hold off
 
 
