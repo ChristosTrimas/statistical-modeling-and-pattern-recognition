@@ -157,14 +157,14 @@ NewDim = 2; %The new feature dimension after applying LDA
 v = myLDA(meas_norm, iris_labels, NewDim);
 
 %  Project the data on the direction of the two dimensional v
- [meas_reduced] = projectDataLDA(meas_norm, v);
+[meas_reduced] = projectDataLDA(meas_norm, v);
 
 %  Visualize the sample dataset after LDA is applied
 %  Use different color/symbol for each class
 figure
 n_1 = IRIS1*v;
-n_2=IRIS2*v;
-n_3=IRIS3*v;
+n_2 = IRIS2*v;
+n_3 = IRIS3*v;
 
 hold on
 plot(n_1(:, 1), n_1(:, 2), 'bo');
