@@ -1,7 +1,4 @@
-data_file = 'C:/Users/user/Desktop/exercise1_4/data/mnist.mat';
-
-%download the dataset and change the directory above
-
+data_file = 'C:\Users\user\Desktop\Christos\statistical_modelling_pattern_recognition\MATLAB_CODE_Exe_1\exercise1_4/data/mnist.mat';
 
 data = load(data_file);
 
@@ -78,8 +75,8 @@ PC2 = size(digit_C2_images) / size(images); %P(C2)
 
 % % Likelihoods
 PgivenC1_L = C1_bins(1) / size(digit_C1_images,1); %P(L|C1)
-PgivenC1_M = C1_bins(2) / size(digit_C2_images,1); %P(M|C1)
-PgivenC1_H = C1_bins(3) / size(digit_C2_images,1); %P(H|C1)
+PgivenC1_M = C1_bins(2) / size(digit_C1_images,1); %P(M|C1)
+PgivenC1_H = C1_bins(3) / size(digit_C1_images,1); %P(H|C1)
 PgivenC1 = [PgivenC1_L PgivenC1_M PgivenC1_H]';
 
 PgivenC2_L = C2_bins(1) / size(digit_C2_images,1); %P(L|C2)
