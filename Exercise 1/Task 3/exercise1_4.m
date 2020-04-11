@@ -1,4 +1,4 @@
-data_file = 'C:\Users\user\Desktop\Christos\statistical_modelling_pattern_recognition\MATLAB_CODE_Exe_1\exercise1_4/data/mnist.mat';
+data_file = 'C:\Users\user\Desktop\pset_1\exer_1_3_4\scripts\exercise1_4/data/mnist.mat';
 
 data = load(data_file);
 
@@ -70,27 +70,27 @@ end
 all_bins = C1_bins + C2_bins;
 
 % Prior Probabilities
-PC1 = size(digit_C1_images) / size(images); %P(C1)
-PC2 = size(digit_C2_images) / size(images); %P(C2)
+PC1 = size(digit_C1_images) / (size(digit_C1_images)+size(digit_C2_images)) %P(C1)
+PC2 = size(digit_C2_images) / (size(digit_C1_images)+size(digit_C2_images)) %P(C2)
 
 % % Likelihoods
-PgivenC1_L = C1_bins(1) / size(digit_C1_images,1); %P(L|C1)
-PgivenC1_M = C1_bins(2) / size(digit_C1_images,1); %P(M|C1)
-PgivenC1_H = C1_bins(3) / size(digit_C1_images,1); %P(H|C1)
-PgivenC1 = [PgivenC1_L PgivenC1_M PgivenC1_H]';
+PgivenC1_L = C1_bins(1) / size(digit_C1_images,1) %P(L|C1)
+PgivenC1_M = C1_bins(2) / size(digit_C1_images,1) %P(M|C1)
+PgivenC1_H = C1_bins(3) / size(digit_C1_images,1) %P(H|C1)
+PgivenC1 = [PgivenC1_L PgivenC1_M PgivenC1_H]'
 
-PgivenC2_L = C2_bins(1) / size(digit_C2_images,1); %P(L|C2)
-PgivenC2_M = C2_bins(2) / size(digit_C2_images,1); %P(M|C2)
-PgivenC2_H = C2_bins(3) / size(digit_C2_images,1); %P(H|C2)
-PgivenC2 = [PgivenC2_L PgivenC2_M PgivenC2_H]';
+PgivenC2_L = C2_bins(1) / size(digit_C2_images,1) %P(L|C2)
+PgivenC2_M = C2_bins(2) / size(digit_C2_images,1) %P(M|C2)
+PgivenC2_H = C2_bins(3) / size(digit_C2_images,1) %P(H|C2)
+PgivenC2 = [PgivenC2_L PgivenC2_M PgivenC2_H]'
 
 % % Evidence 
 % Multiplication Rule
-P_L = PgivenC1_L*PC1 + PgivenC2_L*PC2;
-P_M = PgivenC1_M*PC1 + PgivenC2_M*PC2;
-P_H = PgivenC1_H*PC1 + PgivenC2_H*PC2;
+P_L = PgivenC1_L*PC1 + PgivenC2_L*PC2
+P_M = PgivenC1_M*PC1 + PgivenC2_M*PC2
+P_H = PgivenC1_H*PC1 + PgivenC2_H*PC2
 
 % % Posterior Probabilities
 % Bayes theorem or posterior = likelihood x prior
-PC1givenL = (PgivenC1_L*PC1)/P_L;
-PC2givenL = (PgivenC2_L*PC2)/P_L;
+PC1givenL = (PgivenC1_L*PC1)/P_L
+PC2givenL = (PgivenC2_L*PC2)/P_L
