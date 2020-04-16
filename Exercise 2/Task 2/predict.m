@@ -15,6 +15,14 @@ p = zeros(m, 1);
 %               You should set p to a vector of 0's and 1's
 %
 
+for i=1:m
+    accepted = 0;
+    Pr = sigmoid(X(i,:)*theta);
+    if Pr >= 0.5
+        accepted = 1;
+    end
+    p(i,1) = accepted;
+end
 
 
 

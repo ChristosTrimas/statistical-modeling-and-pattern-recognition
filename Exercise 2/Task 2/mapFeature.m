@@ -12,6 +12,11 @@ function out = mapFeature(X1, X2)
 
 degree = 6;
 out = ones(length(X1(:,1)), 28);
-
+P = zeros();
+for i=0:degree
+    for j=0:i
+        P = P + sum(sum(X1(j+1,:)*X2(i-j+1,:)));
+    end
+end
 
 end
