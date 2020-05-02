@@ -1,8 +1,8 @@
-clear;
+clear all;
 clc;
 close all;
 load('C:\Users\user\Desktop\exercises_2\exercise2_4\digits.mat');
-A = reshape(train9(55, :), 28, 28);
+A = reshape(test0(55, :), 28, 28);
 figure;
 imagesc(A);
 %train0 --> y0
@@ -27,8 +27,6 @@ p7 = (1/n)*sum(train7);
 p8 = (1/n)*sum(train8);
 
 p9 = (1/n)*sum(train9);
-
-p = [p0;p1;p2;p3;p4;p5;p6;p7;p8;p9];
 
 for i=1:784
     if p0(1,i)==0
@@ -130,7 +128,7 @@ for i=1:500
     lpxp9(i,:) = train9(i,:)*log(p9)'+(1-train9(i,:))*log(1-p9)';
 end
 
-eikona0 = lpxp0'*train0;
+eikona0 = train0'*lpxp0;
 figure;
 B = reshape(eikona0,28,28);
 imagesc(B)
@@ -175,7 +173,256 @@ figure;
 B = reshape(eikona8,28,28);
 imagesc(B)
 
-eikona9 = lpxp9'*train9;
+eikona9 = train9'*lpxp9;
 figure;
 B = reshape(eikona9,28,28);
 imagesc(B)
+
+for i=1:500
+    tst0 = test0(i,:) * log(p0)' + (1 - test0(i,:)) * log(1 - p0)';
+    tst1 = test0(i,:) * log(p1)' + (1 - test0(i,:)) * log(1 - p1)';
+    tst2 = test0(i,:) * log(p2)' + (1 - test0(i,:)) * log(1 - p2)';
+    tst3 = test0(i,:) * log(p3)' + (1 - test0(i,:)) * log(1 - p3)';
+    tst4 = test0(i,:) * log(p4)' + (1 - test0(i,:)) * log(1 - p4)';
+    tst5 = test0(i,:) * log(p5)' + (1 - test0(i,:)) * log(1 - p5)';
+    tst6 = test0(i,:) * log(p6)' + (1 - test0(i,:)) * log(1 - p6)';
+    tst7 = test0(i,:) * log(p7)' + (1 - test0(i,:)) * log(1 - p7)';
+    tst8 = test0(i,:) * log(p8)' + (1 - test0(i,:)) * log(1 - p8)';
+    tst9 = test0(i,:) * log(p9)' + (1 - test0(i,:)) * log(1 - p9)';
+    ltst0(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst0));
+[x0,y0]= find(ltst0==index);
+
+for i=1:500
+    tst0 = test1(i,:) * log(p0)' + (1 - test1(i,:)) * log(1 - p0)';
+    tst1 = test1(i,:) * log(p1)' + (1 - test1(i,:)) * log(1 - p1)';
+    tst2 = test1(i,:) * log(p2)' + (1 - test1(i,:)) * log(1 - p2)';
+    tst3 = test1(i,:) * log(p3)' + (1 - test1(i,:)) * log(1 - p3)';
+    tst4 = test1(i,:) * log(p4)' + (1 - test1(i,:)) * log(1 - p4)';
+    tst5 = test1(i,:) * log(p5)' + (1 - test1(i,:)) * log(1 - p5)';
+    tst6 = test1(i,:) * log(p6)' + (1 - test1(i,:)) * log(1 - p6)';
+    tst7 = test1(i,:) * log(p7)' + (1 - test1(i,:)) * log(1 - p7)';
+    tst8 = test1(i,:) * log(p8)' + (1 - test1(i,:)) * log(1 - p8)';
+    tst9 = test1(i,:) * log(p9)' + (1 - test1(i,:)) * log(1 - p9)';
+    ltst1(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst1));
+[x1,y1]= find(ltst1==index);
+
+for i=1:500
+    tst0 = test2(i,:) * log(p0)' + (1 - test2(i,:)) * log(1 - p0)';
+    tst1 = test2(i,:) * log(p1)' + (1 - test2(i,:)) * log(1 - p1)';
+    tst2 = test2(i,:) * log(p2)' + (1 - test2(i,:)) * log(1 - p2)';
+    tst3 = test2(i,:) * log(p3)' + (1 - test2(i,:)) * log(1 - p3)';
+    tst4 = test2(i,:) * log(p4)' + (1 - test2(i,:)) * log(1 - p4)';
+    tst5 = test2(i,:) * log(p5)' + (1 - test2(i,:)) * log(1 - p5)';
+    tst6 = test2(i,:) * log(p6)' + (1 - test2(i,:)) * log(1 - p6)';
+    tst7 = test2(i,:) * log(p7)' + (1 - test2(i,:)) * log(1 - p7)';
+    tst8 = test2(i,:) * log(p8)' + (1 - test2(i,:)) * log(1 - p8)';
+    tst9 = test2(i,:) * log(p9)' + (1 - test2(i,:)) * log(1 - p9)';
+    ltst2(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst2));
+[x2,y2]= find(ltst2==index);
+
+for i=1:500
+    tst0 = test3(i,:) * log(p0)' + (1 - test3(i,:)) * log(1 - p0)';
+    tst1 = test3(i,:) * log(p1)' + (1 - test3(i,:)) * log(1 - p1)';
+    tst2 = test3(i,:) * log(p2)' + (1 - test3(i,:)) * log(1 - p2)';
+    tst3 = test3(i,:) * log(p3)' + (1 - test3(i,:)) * log(1 - p3)';
+    tst4 = test3(i,:) * log(p4)' + (1 - test3(i,:)) * log(1 - p4)';
+    tst5 = test3(i,:) * log(p5)' + (1 - test3(i,:)) * log(1 - p5)';
+    tst6 = test3(i,:) * log(p6)' + (1 - test3(i,:)) * log(1 - p6)';
+    tst7 = test3(i,:) * log(p7)' + (1 - test3(i,:)) * log(1 - p7)';
+    tst8 = test3(i,:) * log(p8)' + (1 - test3(i,:)) * log(1 - p8)';
+    tst9 = test3(i,:) * log(p9)' + (1 - test3(i,:)) * log(1 - p9)';
+    ltst3(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst3));
+[x3,y3]= find(ltst3==index);
+
+for i=1:500
+    tst0 = test4(i,:) * log(p0)' + (1 - test4(i,:)) * log(1 - p0)';
+    tst1 = test4(i,:) * log(p1)' + (1 - test4(i,:)) * log(1 - p1)';
+    tst2 = test4(i,:) * log(p2)' + (1 - test4(i,:)) * log(1 - p2)';
+    tst3 = test4(i,:) * log(p3)' + (1 - test4(i,:)) * log(1 - p3)';
+    tst4 = test4(i,:) * log(p4)' + (1 - test4(i,:)) * log(1 - p4)';
+    tst5 = test4(i,:) * log(p5)' + (1 - test4(i,:)) * log(1 - p5)';
+    tst6 = test4(i,:) * log(p6)' + (1 - test4(i,:)) * log(1 - p6)';
+    tst7 = test4(i,:) * log(p7)' + (1 - test4(i,:)) * log(1 - p7)';
+    tst8 = test4(i,:) * log(p8)' + (1 - test4(i,:)) * log(1 - p8)';
+    tst9 = test4(i,:) * log(p9)' + (1 - test4(i,:)) * log(1 - p9)';
+    ltst4(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst4));
+[x4,y4]= find(ltst4==index);
+
+for i=1:500
+    tst0 = test5(i,:) * log(p0)' + (1 - test5(i,:)) * log(1 - p0)';
+    tst1 = test5(i,:) * log(p1)' + (1 - test5(i,:)) * log(1 - p1)';
+    tst2 = test5(i,:) * log(p2)' + (1 - test5(i,:)) * log(1 - p2)';
+    tst3 = test5(i,:) * log(p3)' + (1 - test5(i,:)) * log(1 - p3)';
+    tst4 = test5(i,:) * log(p4)' + (1 - test5(i,:)) * log(1 - p4)';
+    tst5 = test5(i,:) * log(p5)' + (1 - test5(i,:)) * log(1 - p5)';
+    tst6 = test5(i,:) * log(p6)' + (1 - test5(i,:)) * log(1 - p6)';
+    tst7 = test5(i,:) * log(p7)' + (1 - test5(i,:)) * log(1 - p7)';
+    tst8 = test5(i,:) * log(p8)' + (1 - test5(i,:)) * log(1 - p8)';
+    tst9 = test5(i,:) * log(p9)' + (1 - test5(i,:)) * log(1 - p9)';
+    ltst5(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst5));
+[x5,y5]= find(ltst5==index);
+
+for i=1:500
+    tst0 = test6(i,:) * log(p0)' + (1 - test6(i,:)) * log(1 - p0)';
+    tst1 = test6(i,:) * log(p1)' + (1 - test6(i,:)) * log(1 - p1)';
+    tst2 = test6(i,:) * log(p2)' + (1 - test6(i,:)) * log(1 - p2)';
+    tst3 = test6(i,:) * log(p3)' + (1 - test6(i,:)) * log(1 - p3)';
+    tst4 = test6(i,:) * log(p4)' + (1 - test6(i,:)) * log(1 - p4)';
+    tst5 = test6(i,:) * log(p5)' + (1 - test6(i,:)) * log(1 - p5)';
+    tst6 = test6(i,:) * log(p6)' + (1 - test6(i,:)) * log(1 - p6)';
+    tst7 = test6(i,:) * log(p7)' + (1 - test6(i,:)) * log(1 - p7)';
+    tst8 = test6(i,:) * log(p8)' + (1 - test6(i,:)) * log(1 - p8)';
+    tst9 = test6(i,:) * log(p9)' + (1 - test6(i,:)) * log(1 - p9)';
+    ltst6(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst6));
+[x6,y6]= find(ltst6==index);
+
+for i=1:500
+    tst0 = test7(i,:) * log(p0)' + (1 - test7(i,:)) * log(1 - p0)';
+    tst1 = test7(i,:) * log(p1)' + (1 - test7(i,:)) * log(1 - p1)';
+    tst2 = test7(i,:) * log(p2)' + (1 - test7(i,:)) * log(1 - p2)';
+    tst3 = test7(i,:) * log(p3)' + (1 - test7(i,:)) * log(1 - p3)';
+    tst4 = test7(i,:) * log(p4)' + (1 - test7(i,:)) * log(1 - p4)';
+    tst5 = test7(i,:) * log(p5)' + (1 - test7(i,:)) * log(1 - p5)';
+    tst6 = test7(i,:) * log(p6)' + (1 - test7(i,:)) * log(1 - p6)';
+    tst7 = test7(i,:) * log(p7)' + (1 - test7(i,:)) * log(1 - p7)';
+    tst8 = test7(i,:) * log(p8)' + (1 - test7(i,:)) * log(1 - p8)';
+    tst9 = test7(i,:) * log(p9)' + (1 - test7(i,:)) * log(1 - p9)';
+    ltst7(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst7));
+[x7,y7]= find(ltst7==index);
+
+for i=1:500
+    tst0 = test8(i,:) * log(p0)' + (1 - test8(i,:)) * log(1 - p0)';
+    tst1 = test8(i,:) * log(p1)' + (1 - test8(i,:)) * log(1 - p1)';
+    tst2 = test8(i,:) * log(p2)' + (1 - test8(i,:)) * log(1 - p2)';
+    tst3 = test8(i,:) * log(p3)' + (1 - test8(i,:)) * log(1 - p3)';
+    tst4 = test8(i,:) * log(p4)' + (1 - test8(i,:)) * log(1 - p4)';
+    tst5 = test8(i,:) * log(p5)' + (1 - test8(i,:)) * log(1 - p5)';
+    tst6 = test8(i,:) * log(p6)' + (1 - test8(i,:)) * log(1 - p6)';
+    tst7 = test8(i,:) * log(p7)' + (1 - test8(i,:)) * log(1 - p7)';
+    tst8 = test8(i,:) * log(p8)' + (1 - test8(i,:)) * log(1 - p8)';
+    tst9 = test8(i,:) * log(p9)' + (1 - test8(i,:)) * log(1 - p9)';
+    ltst8(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst8));
+[x8,y8]= find(ltst8==index);
+
+for i=1:500
+    tst0 = test9(i,:) * log(p0)' + (1 - test9(i,:)) * log(1 - p0)';
+    tst1 = test9(i,:) * log(p1)' + (1 - test9(i,:)) * log(1 - p1)';
+    tst2 = test9(i,:) * log(p2)' + (1 - test9(i,:)) * log(1 - p2)';
+    tst3 = test9(i,:) * log(p3)' + (1 - test9(i,:)) * log(1 - p3)';
+    tst4 = test9(i,:) * log(p4)' + (1 - test9(i,:)) * log(1 - p4)';
+    tst5 = test9(i,:) * log(p5)' + (1 - test9(i,:)) * log(1 - p5)';
+    tst6 = test9(i,:) * log(p6)' + (1 - test9(i,:)) * log(1 - p6)';
+    tst7 = test9(i,:) * log(p7)' + (1 - test9(i,:)) * log(1 - p7)';
+    tst8 = test9(i,:) * log(p8)' + (1 - test9(i,:)) * log(1 - p8)';
+    tst9 = test9(i,:) * log(p9)' + (1 - test9(i,:)) * log(1 - p9)';
+    ltst9(:,i) = [tst0; tst1; tst2; tst3; tst4; tst5; tst6; tst7; tst8; tst9];
+end
+
+index = (max(ltst9));
+[x9,y9]= find(ltst9==index);
+cor = 0;
+for i=1:length(x0)
+    if x0(i)==1
+        cor = cor+1;
+    end
+end
+accuracy0 = cor / length(x0)
+
+cor = 0;
+for i=1:length(x1)
+    if x1(i)==2
+        cor = cor+1;
+    end
+end
+accuracy1 = cor / length(x1)
+
+cor = 0;
+for i=1:length(x2)
+    if x2(i)==3
+        cor = cor+1;
+    end
+end
+accuracy2 = cor / length(x2)
+
+cor = 0;
+for i=1:length(x3)
+    if x3(i)==4
+        cor = cor+1;
+    end
+end
+accuracy3 = cor / length(x3)
+
+cor = 0;
+for i=1:length(x4)
+    if x4(i)==5
+        cor = cor+1;
+    end
+end
+accuracy4 = cor / length(x4)
+
+cor = 0;
+for i=1:length(x5)
+    if x5(i)==6
+        cor = cor+1;
+    end
+end
+accuracy5 = cor / length(x5)
+
+cor = 0;
+for i=1:length(x6)
+    if x6(i)==7
+        cor = cor+1;
+    end
+end
+accuracy6 = cor / length(x6)
+
+cor = 0;
+for i=1:length(x7)
+    if x7(i)==8
+        cor = cor+1;
+    end
+end
+accuracy7 = cor / length(x7)
+
+cor = 0;
+for i=1:length(x8)
+    if x8(i)==9
+        cor = cor+1;
+    end
+end
+accuracy8 = cor / length(x8)
+
+cor = 0;
+for i=1:length(x9)
+    if x9(i)==10
+        cor = cor+1;
+    end
+end
+accuracy9 = cor / length(x9)
