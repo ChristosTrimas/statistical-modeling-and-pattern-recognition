@@ -6,23 +6,16 @@ clc;
 H = importdata('C:\Users\user\Desktop\exercises_2\exercise2_5\data_2_5.txt');
 
 %initializations
-axonasx = -0.5:00000.1:8;
+axonasx = -0.5:0000000000.1:8;
 m0 = 0;                         
 variance = 1.25^2;              %sigma0^2
 sigma0 = 10*variance;           %sigma^2 = 10sigma0^2
 n = size(H.data,1);
 
-
-% Hmean is the x_hat of equation 34
+% 34,35,36 equations
 for i=1:n
     Hmean(i) = mean(H.data(1:i,1));
-end
-%equation 35 for m_n
-for i=1:n
     Mn(i) = (n*sigma0/(n*sigma0+variance))*Hmean(1,i);
-end
-%equation 36 for s_n
-for i=1:n
     Sn(i) = (sigma0*variance)/(i*sigma0+variance);
 end
 
