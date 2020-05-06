@@ -2,7 +2,7 @@ close all
 clear all
 clc
 
-C = 10; % Choose C = 0.01, 0.1, 1, 10, 100, 1000, 10000
+C = 100; % Choose C = 0.01, 0.1, 1, 10, 100, 1000, 10000
 
 load('C:\Users\user\Desktop\exercises_2\exercise2_7//twofeature2.txt');
 n = size(twofeature2, 1); 
@@ -10,7 +10,7 @@ y = twofeature2(1:n, 1);
 X = twofeature2(1:n, 2:3);
 
 % Form the augmented dataset. 
-for i=1:size(X,1)
+for i=1:size(X,1) 
     Xa(i,1) = X(i,1);
     Xa(i,2) = X(i,2);
     Xa(i,3) = X(i,1)^2 + X(i,2)^2;

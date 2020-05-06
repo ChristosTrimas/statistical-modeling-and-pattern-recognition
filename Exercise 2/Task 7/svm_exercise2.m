@@ -5,7 +5,7 @@ clc;
 C = 10; % Choose C = 0.01, 0.1, 1, 10, 100, 1000, 10000
 
 load('C:\Users\user\Desktop\exercises_2\exercise2_7/twofeature1.txt');
-n = size(twofeature1, 1)-1 ; % leave out the last example
+n = size(twofeature1, 1) ; % leave out the last example
 y = twofeature1(1:n, 1);
 X = twofeature1(1:n, 2:3);
 
@@ -45,7 +45,7 @@ lb = zeros(n,1);
 ub = C*ones(n,1);
 
 lambda = quadprog(H, f, A, b, Aeq, beq,lb,ub); % Find the Lagrange multipliers
-indices = find(lambda > 0.0001 ); % Find the support vectors
+indices = find(lambda > 0.0001 & C>=lambda); % Find the support vectors
 
 Xsup = X(indices , :) ; % The support vectors only 
 ysup = y(indices ,:);
