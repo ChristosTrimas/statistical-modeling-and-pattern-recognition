@@ -23,7 +23,18 @@ idx = zeros(m, 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+for i = 1:length(X)
+    dist = 99999999999; %a very large number
 
+    for j = 1:K
+        distance = norm(X(i,:) - centroids(j,:)) ^ 2;
+
+        if distance < dist
+            dist = distance;
+            idx(i) = j;
+        end
+    end
+end
 
 % =============================================================
 

@@ -26,7 +26,7 @@ clear ; close all; clc
 fprintf('Finding closest centroids.\n\n');
 
 % Load an example dataset that we will be using
-load('ex3data1.mat');
+load('C:\Users\user\Desktop\exercise3_2\ex3data1.mat');
 
 % Select an initial set of centroids
 K = 3; % 3 Centroids
@@ -150,7 +150,7 @@ idx = findClosestCentroids(X, centroids);
 
 % We can now recover the image from the indices (idx) by mapping each pixel
 % (specified by it's index in idx) to the centroid value
-X_recovered = ......
+X_recovered = centroids(idx,:);
 
 % Reshape the recovered image into proper dimensions
 X_recovered = reshape(X_recovered, img_size(1), img_size(2), 3);
