@@ -5,14 +5,13 @@ clear all; close all
 
 %%%%% Initializations
 NClasses=4; %Number of Classes
-K=[1 3 5 10]; %Different values for K nearest Neighbours
 nS = zeros(NClasses,1); %Number of Samples per class
 
 %Define the names of the .csv files that contain the data
-course_filename='Data/course_TDM.csv';
-faculty_filename='Data/faculty_TDM.csv';
-project_filename='Data/project_TDM.csv';
-student_filename='Data/student_TDM.csv';
+course_filename='C:\Users\user\Desktop\exercise3_1\Data/course_TDM.csv';
+faculty_filename='C:\Users\user\Desktop\exercise3_1\Data/faculty_TDM.csv';
+project_filename='C:\Users\user\Desktop\exercise3_1\Data/project_TDM.csv';
+student_filename='C:\Users\user\Desktop\exercise3_1\Data/student_TDM.csv';
 
 R = input('Enter the number of words to be used: ');
 dtype = input('Enter (1) for norm2 and (2) for Cosine Similarity: ');
