@@ -3,3 +3,5 @@ function p = gaussian(x, m, S)
     %  S determines the covariance of the multivariate normal distribution.
     
     % your code here
+
+p = mvnpdf(x,m,S);
