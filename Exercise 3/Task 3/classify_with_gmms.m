@@ -10,5 +10,13 @@ function y = classify_with_gmms(x, Pm, M, S)
     %   y:  The class index  
 
     % your code here
+tmp = size(3,1);
+    for j=1:3
+%         temp(j) = log(Pm(j)*(mvnpdf(x,M(j,:),S(:,:,j))));
+          tmp(j) = log(sum(Pm(j)*mvnpdf(x,M,S)));
+    end
+%    y = y + log(giorgos); 
+index = max(tmp);
+[k,y] = find(tmp==index);
+end
 
-    

@@ -20,7 +20,7 @@ function [Pm, M, S] = fitGMMs(X, K)
     for its = 1:100
         % E-step. Calculation of likelihood 'G'
         % your code here     
-        Px = real(calc_prob());     % size=Px(N, K);
+        Px = real(gaussian());     % size=Px(N, K);
         Px(isnan(Px))=0;
         Px(isnan(Px))=0; 
         G = Px .* repmat(pPi, N, 1); %numerator  = pi(k) * N(xi | pMiu(k), pSigma(k))
@@ -38,8 +38,7 @@ function [Pm, M, S] = fitGMMs(X, K)
         
         for t = 1:K 
             Xshift = X-repmat(pMiu(t, :), N, 1);
-            pSigma(:, :, t) = (Xshift' * ...
-                (diag(G(:, t)) * Xshift)) / Nk(t);
+            pSigma(:,:,t) = (Xshift'*(diag(G(:, t)) * Xshift)) / Nk(t);
         end
         
         Pm = pPi; 
@@ -51,10 +50,7 @@ function [Pm, M, S] = fitGMMs(X, K)
             pPi = zeros(1, K); 
             pSigma = zeros(d, d, K); 
 
-
-            distmat = repmat(sum(X.*X, 2), 1, K) + ... 
-                repmat(sum(pMiu.*pMiu, 2)', N, 1) - ...
-                2*X*pMiu';
+            distmat = repmat(sum(X.*X, 2), 1, K) + repmat(sum(pMiu.*pMiu, 2)', N, 1) - 2*X*pMiu';
             [~, labels] = min(distmat, [], 2);%Return the minimum from each row
 
             for k=1:K
@@ -64,7 +60,7 @@ function [Pm, M, S] = fitGMMs(X, K)
             end
         end
     
-    function Px = calc_prob() 
+    function Px = gaussian() 
         %Gaussian posterior probability 
         %N(x|pMiu,pSigma) = 1/((2pi)^(D/2))*(1/(abs(sigma))^0.5)*exp(-1/2*(x-pMiu)'pSigma^(-1)*(x-pMiu))
         Px = zeros(N, 1);
