@@ -9,8 +9,21 @@ function [test_z] = KNN_classify(k, train_f, train_y, test_f, dtype)
    %    dtype=2: Call the function CosineSimilarity_Distance
  
    % Add your code here
-   
-   
+test_z = 0;
+    for i=1:size(test_f,1)
+        if dtype == 1
+            d = Euclidean_Distance(test_f(i,:),train_f);
+        else
+            d = CosineSimilarity_Distance(test_f(i,:),train_f);
+        end
+
+        % sort 
+        [v,idx] = sort(d);
+		
+        % find labels
+        test_z = [test_z; mode(train_y(idx(1:k),1))];
+    end
+test_z = test_z(2: end);
 end
    
  

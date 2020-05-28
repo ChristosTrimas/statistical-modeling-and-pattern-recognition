@@ -66,7 +66,7 @@ f=tfidfFea;  %TF-IDF features
 %Create the vocabulary of the top R entropy terms
 %%%Complete your code in the function
 [NewVocabulary, new_e, new_f] = GetNewVocabulary(R, Vocabulary, e, f); 
-
+new_f = full(new_f);
 %-------------------------------------------------------------------------
 %        kNN Classification
 %-------------------------------------------------------------------------
@@ -101,23 +101,23 @@ f=tfidfFea;  %TF-IDF features
         end
 
 
-		%Start the Classification and Cross Validation
+% 		Start the Classification and Cross Validation
         for cv = 1:NFolds
-            test_f =  ....  %test features for fold cv
-            test_y =  ....	%test labels for fold cv
-            train_f =  .... 	%train features for fold cv
-            train_y =  .... 	%train labels for fold cv
+            test_f = new_f(find(foldInd==cv),:);  %test features for fold cv
+            test_y = labels(find(foldInd==cv),:);	%test labels for fold cv
+            train_f = new_f(find(foldInd~=cv),:);	%train features for fold cv
+            train_y = labels(find(foldInd~=cv),:); 	%train labels for fold cv
             test_z = KNN_classify(k, train_f, train_y, test_f, dtype); %Return the predicted labels
-
-            %Check Accuracy for fold
+% 
+%             %Check Accuracy for fold
+            tmp = length(find(test_y==test_z));
+            FoldAcc(cv) = tmp/size(test_z,1);   %Accuracy of fold cv 
             
-            FoldAcc(cv) = .......   %Accuracy of fold cv 
-            
-            out=sprintf('Fold: %d, Accuracy: %f',cv, FoldAcc(fold));
+            out=sprintf('Fold: %d, Accuracy: %f',cv, FoldAcc(cv));
             disp(out)
         end
-        TotalAccuracy =  ......  %Total Accuracy 
-        out=sprintf('K=%d -- Total Accuracy: %f',k, TotalAccuracy);
+        TotalAccuracy =  mean(FoldAcc);  %Total Accuracy 
+        out = sprintf('K=%d -- Total Accuracy: %f',k, TotalAccuracy);
         disp(out)
     end        
 

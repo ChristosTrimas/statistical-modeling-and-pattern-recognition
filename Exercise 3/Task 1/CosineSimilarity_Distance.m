@@ -7,5 +7,10 @@ function dists = CosineSimilarity_Distance(testX, trainX)
 %     dists: vector of the distances from the training samples
 
 % ADD your code here
-
+testX = repmat(testX,size(trainX,1),1);
+xy   = dot(testX,trainX);
+nx   = norm(testX);
+ny   = norm(trainX);
+nxny = nx*ny;
+dists   = xy/nxny;
 end

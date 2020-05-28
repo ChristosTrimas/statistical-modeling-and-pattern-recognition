@@ -7,5 +7,7 @@ function [dists] = Euclidean_Distance(testX, trainX)
 %     dists: vector of the distances from the training samples
 
 %  ADD your code here
+x = repmat(testX,size(trainX,1),1);
+dists =sqrt(sum((x-trainX) .* (x-trainX), 2));
 
 end
