@@ -5,3 +5,5 @@ This repository is created for the purposes of the TUC subject with the same nam
   - Exercise 2: Logistic Reggresion, MLE classification, Support Vector Machines classification.
   - Exercise 3: kNN text classification, K-means Clustering, GMM using EM vs K-means classification.
   - Exercise 4: Feature Selection, Classification, Cross Validation, Overfitting, Simple Neural Network, Convolutional NN for image       Recognition.
+
+Language support: Matlab 2018a and Python3.
