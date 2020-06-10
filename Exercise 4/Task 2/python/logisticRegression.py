@@ -3,6 +3,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from pylab import *
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LogisticRegression
+from warnings import simplefilter
+from sklearn.exceptions import DataConversionWarning
+
+simplefilter(action='ignore', category=FutureWarning)
+warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
 # Load data
 fid = open('exam_scores_data1.txt', 'r')
@@ -133,7 +141,9 @@ accuracy_np = correct / np.size(Y_all)
 
 print('accuracy = ', accuracy_np)
 
-
+####################################################################
+# comparison of the original dataset and the nn classification ##### 
+####################################################################
 print("Do you want to print the dataset?\n")
 image = input("Press 1 for yes, or anything for no:")
 
@@ -159,3 +169,12 @@ if image == '1':
 	plt.xlabel("Grade 1")
 	plt.ylabel("Grade 2")
 	plt.show()
+
+###########################################################################
+# sklearn logistic reggression for comparison #############################
+###########################################################################
+print("\nLogistic Reggresion using sklearn ready classifier:")
+X_train,X_test,y_train,y_test = train_test_split(X_all,Y_all.ravel(),test_size=0.20)
+model = LogisticRegression(random_state=0).fit(X_train,y_train)
+model_prediction = model.predict(X_test)
+print(accuracy_score(y_test,model_prediction))
