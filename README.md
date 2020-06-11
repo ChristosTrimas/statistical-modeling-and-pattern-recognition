@@ -7,3 +7,4 @@ This repository is created for the purposes of the TUC subject with the same nam
   - Exercise 4: Feature Selection, SVM-Classification, Cross Validation, Overfitting, Simple Neural Network, Convolutional NN for image       Recognition.
 
 Language support: Matlab 2018a and Python3.
+To run the fashion_CNN download the notebook and then import it in google colab. Then choose to use GPU as hardware for faster results.
