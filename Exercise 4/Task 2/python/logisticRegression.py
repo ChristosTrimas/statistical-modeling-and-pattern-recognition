@@ -67,7 +67,7 @@ class NeuralNetwork:
 
         # your code here
         m = X.shape[0]
-
+        #or try and implement it with the derivative of sigmoid
         dZ = Y_predicted - Y
 
         dW = 1/m * np.dot(dZ.T,X)
