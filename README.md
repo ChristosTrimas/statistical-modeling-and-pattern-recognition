@@ -8,3 +8,4 @@ This repository is created for the purposes of the TUC subject with the same nam
 
 Language support: Matlab 2018a and Python3.
 To run the fashion_CNN download the notebook and then import it in google colab. Then choose to use GPU as hardware for faster results.
+To run the python scripts you need to download numpy, tensorflow or keras, matplotlib and sci-kit-learn.
