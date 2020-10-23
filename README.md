@@ -1,4 +1,4 @@
-# statistical-modeling-and-pattern-regognition
+# statistical-modeling-and-pattern-recognition
 This repository is created for the purposes of the TUC subject with the same name, or TEL311.
 
   - Exercise 1: Dimensionality Reduction using PCA and LDA, Feature extraction using Bayes theorem.
